@@ -1,0 +1,87 @@
+/* Reset default browser styles */
+body, h1, h2, table, th, td, input, button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-family: Arial, sans-serif;
+}
+
+/* Page layout */
+body {
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f9f9f9;
+}
+
+td:first-child {
+  width: 20%;
+}
+
+/* Flash messages */
+ul.flashes {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+ul.flashes li {
+  padding: 10px;
+  color: #0d0c0c;
+}
+
+ul.flashes li.error {
+  background-color: #ea0e0e;
+}
+
+ul.flashes li.success {
+  background-color: #13e359;
+}
+
+/* Search input */
+input[type="text"] {
+  padding: 5px;
+  width: 200px;
+}
+
+/* Search button */
+button[type="submit"] {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 600px) {
+  table {
+    font-size: 14px;
+  }
+}

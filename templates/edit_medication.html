@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+<head>
+    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='edit_medication.css') }}">
+
+</head>
+  <h2>Edit Medication Entry</h2>
+
+  <div class="container">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-info alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <!-- Edit medication entry form -->
+    <form action="/edit/{{ medication_entry.id }}" method="POST">
+      <!-- Form fields -->
+      <div class="form-group">
+        <label for="name">Medication Name:</label>
+        <input type="text" name="name" class="form-control" value="{{ medication_entry.name }}" required>
+      </div>
+      <div class="form-group">
+        <label for="dosage">Dosage:</label>
+        <input type="text" name="dosage" class="form-control" value="{{ medication_entry.dosage }}" required>
+      </div>
+      <div class="form-group">
+        <label for="frequency">Frequency:</label>
+        <input type="text" name="frequency" class="form-control" value="{{ medication_entry.frequency }}" required>
+      </div>
+      <div class="form-group">
+        <label for="start_date">Start Date:</label>
+        <input type="date" name="start_date" id="start_date" value="{{ medication_entry.start_date.strftime('%Y-%m-%d') }}" required>
+      </div>
+      <div class="form-group">
+        <label for="end_date">End Date:</label>
+        <input type="date" name="end_date" id="end_date" value="{{ medication_entry.end_date.strftime('%Y-%m-%d') if medication_entry.end_date else '' }}">
+      </div>
+      <button type="submit" class="btn btn-primary">Update Medication</button>
+    </form>
+  </div>
+{% endblock %}
